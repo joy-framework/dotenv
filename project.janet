@@ -7,4 +7,4 @@
   :repo "git+https://github.com/joy-framework/dotenv")
 
 (declare-source
-  :source @["src/dotenv.janet"])
+  :source @["dotenv.janet"])
