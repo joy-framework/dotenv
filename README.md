@@ -12,7 +12,7 @@ jpm install https://github.com/joy-framework/dotenv
 ## Usage
 
 ```clojure
-(import dotenv :as env)
+(use dotenv)
 ```
 
 Create a `.env` file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:
@@ -25,7 +25,7 @@ DB_NAME=my_app.sqlite3
 Here's a pretty thorough example of how to use it
 
 ```clojure
-(import dotenv :as env)
+(use dotenv)
 
 (= (env :db-name) "my_app.sqlite3")
 (= (env :my-env) "development")

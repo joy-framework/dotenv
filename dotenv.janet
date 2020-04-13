@@ -17,7 +17,7 @@
           (get key)))))
 
 
-(defn snake-case
+(defn- snake-case
   `Changes a string from kebab-case to snake_case
 
    Example
