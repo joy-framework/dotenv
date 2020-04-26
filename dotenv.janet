@@ -42,3 +42,11 @@
     (let [env-key (-> key string snake-case string/ascii-upper)]
       (or (os/getenv env-key)
           (dotenv env-key)))))
+
+
+(defn load []
+  (let [dict (with [f (file/open ".env")]
+               (-> (file/read f :all)
+                   (parse-dotenv)))]
+    (loop [[k v] :pairs dict]
+      (os/setenv k v))))
