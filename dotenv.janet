@@ -45,8 +45,9 @@
 
 
 (defn load []
-  (let [dict (with [f (file/open ".env")]
-               (-> (file/read f :all)
-                   (parse-dotenv)))]
-    (loop [[k v] :pairs dict]
-      (os/setenv k v))))
+  (when (os/stat ".env")
+    (let [dict (with [f (file/open ".env")]
+                 (-> (file/read f :all)
+                     (parse-dotenv)))]
+      (loop [[k v] :pairs dict]
+        (os/setenv k v)))))
